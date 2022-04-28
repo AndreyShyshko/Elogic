@@ -1,37 +1,74 @@
-
-    .pagebuilder-poster-content {
-        & div {
-            display: flex;
-            flex-direction: column;
-        }
-        & span {
-            //display: inline-block;
-            background-color: rgba(240, 240, 240, 0.3);
-        }
-        & h2 {
-            margin-top: 0;
-            margin-bottom: 5px;
-            letter-spacing: 9px;
-        }
-        & p {
-            color: @color-skeleton__main-font-color;
-        }
-        & button {
-            color: @color-skeleton__second-font-color;
-            text-decoration: underline;
-            margin-top: 0;
-            padding-left: 0;
-        }
+//
+//Main banner styles
+//
+.main-banner .pagebuilder-poster-content {
+    & div {
+        display: flex;
+        flex-direction: column;
     }
+    & span {
+        background-color: rgba(240, 240, 240, 0.3);
+    }
+    & h2 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        letter-spacing: 9px;
+    }
+    & p {
+        color: @color-skeleton__main-font-color;
+    }
+    & button {
+        color: @color-skeleton__second-font-color;
+        text-decoration: underline;
+        margin-top: 0;
+        padding-left: 0;
+    }
+}
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
-    .pagebuilder-poster-content {
+    .main-banner .pagebuilder-poster-content {
         padding-left: 100px;
     }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
-    .pagebuilder-poster-content {
+    .main-banner .pagebuilder-poster-content {
         padding-left: 300px;
+    }
+}
+//
+//secondary banners styles
+//
+.secondary-banner {
+    max-width: 660px;
+}
+
+.secondary-banner .pagebuilder-poster-content {
+        margin-left: auto;
+        width: 260px;
+    & div {
+        display: flex;
+        flex-direction: column;
+    }
+    & span {
+        background-color: rgba(240, 240, 240, 0.3);
+    }
+    & h3 {
+        display: inline;
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: 5px;
+        letter-spacing: 5px;
+    }
+    & p {
+        display: inline;
+        color: @color-skeleton__main-font-color;
+    }
+    & button {
+        color: @color-skeleton__second-font-color;
+        text-decoration: underline;
+        margin-top: 0;
+        padding-left: 0;
+        background-color: rgba(240, 240, 240, 0.3);
     }
 }
