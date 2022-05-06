@@ -1,0 +1,40 @@
+//
+//Main banner styles
+//
+.main-banner .pagebuilder-poster-content {
+    & div {
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-prefix-flex-direction(column);
+    }
+    & span {
+        background-color: rgba(240, 240, 240, 0.3);
+    }
+    & h2 {
+        margin-top: 0;
+        margin-bottom: @indent__xs;
+        letter-spacing: 9px;
+    }
+    & p {
+        color: @color-skeleton__main-font-color;
+    }
+    & button {
+        color: @color-skeleton__second-font-color;
+        text-decoration: underline;
+        margin-top: 0;
+        padding-left: 0;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .main-banner .pagebuilder-poster-content {
+        padding-left: @indent__base * 5;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+    .main-banner .pagebuilder-poster-content {
+        padding-left: @indent__base * 15;
+    }
+}
+
+

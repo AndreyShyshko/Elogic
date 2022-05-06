@@ -1,0 +1,37 @@
+//
+//secondary banners styles
+//
+.secondary-banner {
+    max-width: 660px;
+}
+
+.secondary-banner .pagebuilder-poster-content {
+    margin-left: auto;
+    width: 260px;
+    & div {
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-prefix-flex-direction(column);
+    }
+    & span {
+        background-color: rgba(240, 240, 240, 0.3);
+    }
+    & h3 {
+        display: inline;
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: @indent__xs;
+        letter-spacing: 5px;
+    }
+    & p {
+        display: inline;
+        font-style: italic;
+        color: @color-skeleton__main-font-color;
+    }
+    & button {
+        color: @color-skeleton__second-font-color;
+        text-decoration: underline;
+        margin-top: 0;
+        padding-left: 0;
+        background-color: rgba(240, 240, 240, 0.3);
+    }
+}
