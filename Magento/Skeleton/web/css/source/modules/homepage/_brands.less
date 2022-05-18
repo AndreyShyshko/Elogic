@@ -1,0 +1,57 @@
+//
+//Brands section styles
+//
+& when (@media-common = true) {
+    .brands {
+        position: relative;
+
+        h2 {
+            display: inline-block;
+            padding: 0 @indent__xs;
+            .lib-font-size(36);
+            font-weight: @font-weight__regular;
+            background-color: @color-skeleton__main-background;
+            z-index: 1;
+            width: fit-content;
+            margin: 0 auto;
+        }
+
+        .headerline {
+            position: absolute;
+            width: 100%;
+        }
+        p {
+            display: inline-block;
+            cursor: pointer;
+            color: @color-skeleton__second-font-color;
+            transition: all .4s ease 0s;
+            &:hover {
+                color: @color-skeleton__main-font-color;
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+    .brands {
+        .pagebuilder-column {
+            .lib-vendor-prefix-flex-basis(100%);
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .brands {
+        .pagebuilder-column {
+            .lib-vendor-prefix-flex-basis(100%/2);
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+    .brands {
+        .pagebuilder-column {
+            .lib-vendor-prefix-flex-basis(100%/3);
+        }
+    }
+}
