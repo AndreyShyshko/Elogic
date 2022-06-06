@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.panel.wrapper" remove="true"/>
+
+        <referenceContainer name="header-wrapper">
+            <container name="header_right" htmlTag="div" htmlClass="header-right" after="-">
+                <container name="header_auth" htmlTag="ul" htmlClass="header-auth" before="-" />
+            </container>
+        </referenceContainer>
+
+        <move element="navigation.sections" destination="header-wrapper" after="logo"/>
+
+        <move element="top.search" destination="header_right" after="header_auth"/>
+        <move element="customer" destination="header_auth" before="-"/>
+        <move element="authorization-link" destination="header_auth" after="customer"/>
+        <move element="wish-list-link" destination="header_auth" after="authorization-link"/>
+        <move element="minicart" destination="header_auth" after="wish-list-link"/>
+
+        <referenceBlock name="store_switcher" remove="true"/>
+        <referenceBlock name="footer_links" remove="true"/>
+        <referenceBlock name="copyright" remove="true"/>
+        <move element="form.subscribe" destination="footer-container" before="-"/>
+        <referenceContainer name="footer">
+            <block class="Magento\Cms\Block\BlockByIdentifier" name="skeleton_footer" after="form.subscribe">
+                <arguments>
+                    <argument name="identifier" xsi:type="string">skeleton_footer</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

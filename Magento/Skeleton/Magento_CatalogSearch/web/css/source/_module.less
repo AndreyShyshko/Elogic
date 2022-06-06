@@ -1,0 +1,294 @@
+
+//
+//  Variables
+//  _____________________________________________
+
+@autocomplete__background-color: @color-white;
+@autocomplete__border: 1px solid @form-element-input__border-color;
+@autocomplete-item__border: 1px solid @color-gray90;
+@autocomplete-item__hover__color: @color-gray91;
+@autocomplete-item-amount__color: @color-gray60;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .search {
+        .fieldset {
+            .control {
+                .addon {
+                    input {
+                        flex-basis: auto;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .block-search {
+        margin: auto 0;
+        position: relative;
+
+        .block {
+            &-title {
+                display: none;
+            }
+        }
+
+        .block-content {
+            margin-bottom: 0;
+            .field.search {
+                position: relative;
+            }
+        }
+
+        .label {
+            .lib-icon-font(
+            @_icon-font-content: @icon-search,
+            @_icon-font-size: 22px,
+            @_icon-font-line-height: 50px,
+            @_icon-font-color: @header-icons-color,
+            @_icon-font-color-hover: @header-icons-color-hover,
+            @_icon-font-color-active: @header-icons-color-hover,
+            @_icon-font-text-hide: true
+            );
+            display: inline-block;
+
+            &.active {
+                + .control {
+                    input {
+                        border: 1px solid @color-skeleton__button-border;
+                        background-color: @color-skeleton__button-background;
+                        height: 32px;
+                        transition: all .4s ease 0s;
+                    }
+                }
+            }
+        }
+
+        .control {
+            margin: 0 -@layout__width-xs-indent -1px;
+            padding: 0 @layout__width-xs-indent;
+        }
+
+        input {
+            color: @color-skeleton__button-font-color;
+            font-size: 16px;
+            margin: 0;
+            top: 100%;
+            right: 0;
+            height: 0;
+            width: 280px;
+            border: none;
+            position: absolute;
+            &::placeholder {
+                color: @color-skeleton__main-font-color;
+            }
+        }
+
+        .form.minisearch {
+            &.active {
+                .action.search {
+                    display: inline-block;
+                    .lib-button-icon(
+                        @_icon-font-content: @icon-search,
+                        @_icon-font-size: 16px,
+                        @_icon-font-text-hide: true,
+                        @_icon-font-color: @header-icons-color,
+                        @_icon-font-color-hover: @header-icons-color-hover,
+                        @_icon-font-line-height: 32px
+                    );
+                    .lib-button-reset();
+                    position: absolute;
+                    height: 32px;
+                    right: 10px;
+                    top: 100%;
+                    z-index: 1;
+
+                    &:focus {
+                        &:before {
+                            .lib-css(color, @color-gray20);
+                        }
+                    }
+                }
+            }
+        }
+
+        .action.search {
+            height: 0;
+        }
+
+        .nested {
+            display: none;
+        }
+    }
+
+    .search-autocomplete {
+        display: none;
+        margin-top: -(@indent__base - 5px);
+        overflow: hidden;
+        position: absolute;
+        z-index: 3;
+        &:extend(.abs-add-box-sizing all);
+
+        ul {
+            .lib-list-reset-styles();
+
+            &:not(:empty) {
+                .lib-css(background, @autocomplete__background-color);
+                .lib-css(border, @autocomplete__border);
+                border-top: 0;
+            }
+
+            li {
+                .lib-css(border-top, @autocomplete-item__border);
+                cursor: pointer;
+                margin: 0;
+                padding: @indent__xs @indent__xl @indent__xs @indent__s;
+                position: relative;
+                text-align: left;
+                white-space: normal;
+
+                &:first-child {
+                    border-top: none;
+                }
+
+                &:hover,
+                &.selected {
+                    .lib-css(background, @autocomplete-item__hover__color);
+                }
+
+                .amount {
+                    .lib-css(color, @autocomplete-item-amount__color);
+                    position: absolute;
+                    right: 7px;
+                    top: @indent__xs;
+                }
+            }
+        }
+    }
+
+    .form.search.advanced {
+        .fields.range {
+            .field {
+                &:first-child {
+                    position: relative;
+
+                    .control {
+                        padding-right: @indent__m;
+
+                        &:after {
+                            content: ' \2013 ';
+                            display: inline-block;
+                            position: absolute;
+                            right: 0;
+                            text-align: center;
+                            top: 6px;
+                            width: 25px;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    position: relative;
+
+                    div.mage-error[generated] {
+                        left: 0;
+                        position: absolute;
+                        top: 32px;
+                    }
+                }
+
+                &.with-addon {
+                    .control {
+                        padding-right: @indent__xl + 5px;
+                    }
+                }
+
+                &.date {
+                    &:extend(.abs-field-date all);
+                }
+            }
+        }
+
+        .group.price {
+            .addon {
+                .addafter {
+                    background: none;
+                    border: 0;
+                    padding-top: 6px;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    .search-terms {
+        &:extend(.abs-reset-list all);
+        line-height: 2em;
+
+        > li {
+            display: inline-block;
+            margin-right: @indent__s;
+        }
+    }
+
+    .search.found {
+        margin-bottom: @indent__s;
+    }
+}
+
+
+  //Mobile
+  //_____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xxs) {
+    .block-search {
+        input {
+            right: 10px;
+        }
+        .form.minisearch {
+            &.active {
+                .action.search {
+                    right: 20px;
+                }
+            }
+        }
+    }
+}
+
+
+  //Desktop
+  //_____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block-search {
+        z-index: 4;
+
+        .control {
+            border-top: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            .lib-input-placeholder(@form-element-input-placeholder__color);
+            margin: 0;
+            padding-right: @indent__xl - 5px;
+            position: absolute;
+        }
+    }
+
+    .search-autocomplete {
+        margin-top: 0;
+    }
+
+    .form.search.advanced {
+        &:extend(.abs-forms-general-desktop all);
+    }
+}

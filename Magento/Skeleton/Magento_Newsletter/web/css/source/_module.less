@@ -1,0 +1,157 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //  Newsletter subscription
+    .block.newsletter {
+        margin-bottom: 0;
+        background-color: @color-skeleton__subscribe-backgraund;
+        width: auto;
+        max-width: 100%;
+
+        .container {
+            box-sizing: border-box;
+            padding: @indent__l @indent__base;
+            max-width: 1280px;
+            margin: 0 auto;
+
+            .title {
+                display: none;
+            }
+
+            .content {
+                .sign-up {
+                    h2 {
+                        color: @color-skeleton__second-font-color;
+                        .lib-font-size(30);
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        margin: 0;
+                    }
+
+                    p {
+                        .lib-font-size(14);
+                        color: @color-skeleton__main-font-color;
+                    }
+                }
+
+                .form.subscribe {
+                    display: block;
+                    width: auto;
+                    margin: auto;
+                    margin-top: @indent__s;
+
+                    .actions {
+                        height: 50px;
+                        width: 150px;
+                        display: block;
+                        margin: 0 auto;
+                        margin-top: @indent__xs;
+
+                        button {
+                            height: 100%;
+                            width: 100%;
+                            text-transform: uppercase;
+                            font-weight: @font-weight__regular;
+                            letter-spacing: 1px;
+                            background-color: @color-skeleton__button-background;
+                        }
+                    }
+                }
+
+                .fieldset {
+                    margin: 0;
+                    padding: 0;
+                    vertical-align: top;
+                }
+
+                .field.newsletter {
+                    max-width: 100%;
+                    margin: 0;
+
+                    .control {
+                        height: 50px;
+                        width: 100%;
+
+                        .lib-icon-font(
+                            @icon-envelope,
+                            @_icon-font-size: 16px,
+                            @_icon-font-line-height: 50px,
+                            @_icon-font-color: @color-skeleton__main-font-color,
+                            @_icon-font-margin: 0 0 0 @indent__xs
+                        );
+
+                        &:before {
+                            position: absolute;
+                        }
+
+                        display: block;
+
+                        .label {
+                            &:extend(.abs-visually-hidden all);
+                        }
+
+                        input {
+                            height: 100%;
+                            width: 100%;
+                            background-color: transparent;
+                            margin: 0;
+                            .lib-input-placeholder(@color-skeleton__main-font-color, @font-weight__regular);
+                            padding: 0 0 0 @indent__l; // Reset some default Safari padding values.
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xs) {
+
+    .block.newsletter {
+        .container {
+            .content {
+                .form.subscribe {
+                    .lib-vendor-prefix-display(flex);
+                    max-width: 505px;
+                    margin: @indent__s 0 0 0;
+
+                    .field.newsletter {
+                        flex: 1;
+
+                        .control {
+                            max-width: 350px;
+                        }
+                    }
+
+                    .actions {
+                        margin: 0 0 0 @indent__xs;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    .block.newsletter {
+        .container {
+            .content {
+                .lib-vendor-prefix-display(flex);
+
+                .sign-up {
+                    flex: 1;
+                }
+
+                .form.subscribe {
+                    flex: 1;
+                    margin: auto 0;
+                }
+            }
+        }
+    }
+}
