@@ -299,7 +299,7 @@
         .fieldset-product-options-inner {
             .legend {
                 .lib-css(font-weight, @font-weight__semibold);
-                .lib-font-size(14px);
+                .lib-font-size(14);
                 border: none;
                 display: inline-block;
                 float: none;
@@ -353,7 +353,7 @@
         vertical-align: top;
 
         .old-price {
-            font-size: 20px;
+            .lib-font-size(20);
             font-weight: @font-weight__light;
 
             .price-container > span {
@@ -372,7 +372,7 @@
             }
 
             .price {
-                font-size: 22px;
+                .lib-font-size(22);
                 font-weight: @font-weight__semibold;
                 line-height: 22px;
             }
@@ -393,12 +393,30 @@
 
     .box-tocart {
         &:extend(.abs-box-tocart all);
+        background-color: @color-skeleton__tocart-background;
 
         .field.qty {
+            .control {
+                letter-spacing: -5px;
+            }
+            button {
+                background-color: #ffffff;
+                .lib-font-size(24);
+                border-radius: unset;
+                padding: (@indent__s - 3px) @indent__s;
+            }
         }
 
         .input-text.qty {
+            vertical-align: middle;
             &:extend(.abs-input-qty all);
+            width: 175px;
+            border-right: none;
+            border-left: none;
+            border-radius: unset;
+            &:focus {
+                box-shadow: inset 0 0 3px 1px gray;
+            }
         }
 
         .actions {
@@ -407,12 +425,8 @@
         .action.tocart {
             &:extend(.abs-button-l all);
             &:extend(.abs-button-responsive all);
-
-            &:not(:last-child) {
-                margin-bottom: 15px;
-            }
-
-            vertical-align: top;
+            border-bottom: 1px solid @color-skeleton__button-border;
+            border-radius: unset;
         }
     }
 
@@ -425,7 +439,7 @@
     }
 
     .product-social-links {
-        margin: 0 0 20px;
+        margin: 0 0 @indent__base;
         text-align: center;
 
         .action.tocompare {
@@ -503,16 +517,16 @@
 
             .price-box {
                 display: block;
-                margin: 7px 0;
+                margin: (@indent__s - 3px) 0;
             }
 
             .text {
-                margin-right: 8px;
+                margin-right: @indent__s - 2px;
             }
 
             .counter {
                 .lib-css(color, @primary__color__lighter);
-                font-size: 12px;
+                .lib-font-size(12);
                 white-space: nowrap;
             }
 
@@ -575,7 +589,7 @@
 
         .product-items-names {
             .product-item {
-                display: flex;
+                .lib-vendor-prefix-display(flex);
                 margin-bottom: @indent__s;
             }
 
@@ -660,7 +674,7 @@
         .action.tocart {
             margin-bottom: 0;
             margin-right: 1%;
-            width: 49%;
+            width: 50%;
         }
     }
 
@@ -675,7 +689,7 @@
                 font-size: @font-size__xl;
 
                 .price {
-                    font-size: 36px;
+                    .lib-font-size(36);
                     line-height: 36px;
                 }
             }
@@ -804,7 +818,7 @@
     body.catalog-product-compare-index {
         .action.print {
             float: right;
-            margin: 15px 0;
+            margin: (@indent__base - 5px) 0;
         }
     }
 
@@ -826,7 +840,7 @@
         table-layout: fixed;
 
         .cell {
-            padding: 15px;
+            padding: (@indent__base - 5px);
             width: 180px;
 
             &.label {
@@ -869,7 +883,7 @@
 
                 .action.delete {
                     &:extend(.abs-remove-button-for-blocks all);
-                    margin-right: .6rem;
+                    margin-right: @indent__xs;
                 }
             }
 
@@ -887,7 +901,7 @@
 
         .product-item-photo {
             display: block;
-            margin: 0 auto 15px;
+            margin: 0 auto (@indent__base - 5px);
         }
 
         .product-image-photo {
@@ -899,11 +913,11 @@
         .product.rating,
         .product-item-name {
             display: block;
-            margin: 15px 0;
+            margin: (@indent__base - 5px) 0;
         }
 
         .product-addto-links {
-            margin-top: 15px;
+            margin-top: (@indent__base - 5px);
 
             .action {
                 &.toggle {
@@ -939,7 +953,7 @@
         }
 
         .product-item .product-item-name {
-            margin-left: 22px;
+            margin-left: (@indent__base + 2px);
         }
 
         .action.delete {
@@ -954,7 +968,7 @@
         }
 
         .actions-toolbar {
-            margin: 17px 0 0;
+            margin: (@indent__base - 3px) 0 0;
         }
 
         .action.primary {
@@ -1076,7 +1090,7 @@
         }
 
         .related-available .product-item-name {
-            margin-left: 20px;
+            margin-left: @indent__base;
         }
 
         .field.choice {
@@ -1098,7 +1112,7 @@
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
     .box-tocart {
         .paypal:first-of-type {
-            margin-top: 13px;
+            margin-top: (@indent__s + 3px);
         }
     }
 }

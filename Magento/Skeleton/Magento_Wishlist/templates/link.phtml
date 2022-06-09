@@ -1,9 +1,15 @@
 
+<?php
+/**
+ * hide 'ITEM' after quantity in span tag
+ */
+?>
+
 <li class="link wishlist" data-bind="scope: 'wishlist'">
     <a <?= /* @noEscape */ $block->getLinkAttributes() ?>>
         <span class="wishlist-title"><?= $block->escapeHtml($block->getLabel()) ?></span>
         <!-- ko if: wishlist().counter -->
-        <span data-bind="text: wishlist().items.length" class="counter qty"></span>   // hide 'ITEM' after quantity
+        <span data-bind="text: wishlist().items.length" class="counter qty"></span>
         <!-- /ko -->
     </a>
 </li>

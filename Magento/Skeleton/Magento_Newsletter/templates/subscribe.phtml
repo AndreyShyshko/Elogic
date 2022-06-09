@@ -1,13 +1,16 @@
 <?php
-/** @var \Magento\Newsletter\Block\Subscribe $block */
+/**
+ * add div with class 'sign-up' and children h2 and p
+ * @var \Magento\Newsletter\Block\Subscribe $block
+ */
 ?>
 <div class="block newsletter">
     <div class="container">
         <div class="title"><strong><?= $block->escapeHtml(__('Newsletter')) ?></strong></div>
         <div class="content">
-            <div class="sign-up"> // add div
-                <h2 class="sign-up-title">Keep Updated</h2>  // add title
-                <p class="sign-up-text">Sign up for our newletter to recevie updates an exlusive offers</p> // add text
+            <div class="sign-up">
+                <h2 class="sign-up-title"><?= $block->escapeHtml(__('Keep Updated')) ?></h2>
+                <p class="sign-up-text"><?= $block->escapeHtml(__('Sign up for our newsletter to recevie updates an exlusive offers')) ?></p>
             </div>
             <form class="form subscribe"
                   novalidate
