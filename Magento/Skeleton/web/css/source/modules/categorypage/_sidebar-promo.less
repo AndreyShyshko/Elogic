@@ -1,0 +1,32 @@
+//
+// sidebar-promo styles
+//
+& when (@media-common = true) {
+    .sidebar-promo {
+        .lib-visually-hidden;
+        display: none;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .sidebar-promo {
+        .lib-visually-hidden-reset;
+        position: relative;
+
+        .pagebuilder-poster-content {
+            position: relative;
+            p {
+                text-transform: uppercase;
+                text-align: center;
+                width: 100%;
+                position: absolute;
+                bottom: -100px;
+            }
+        }
+        .slick-dots {
+            padding: 0;
+            position: absolute;
+            bottom: 10px;
+        }
+    }
+}

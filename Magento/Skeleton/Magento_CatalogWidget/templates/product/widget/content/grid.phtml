@@ -2,7 +2,10 @@
 
 use Magento\Framework\App\Action\Action;
 
-/** @var \Magento\CatalogWidget\Block\Product\ProductsList $block */
+/**
+ * add hover image markup
+ *
+ * @var \Magento\CatalogWidget\Block\Product\ProductsList $block */
 
 // phpcs:disable Generic.Files.LineLength.TooLong
 // phpcs:disable Magento2.Templates.ThisInTemplate.FoundHelper
@@ -21,6 +24,10 @@ use Magento\Framework\App\Action\Action;
     $showCart = true;
     $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
     $description = false;
+
+    $_imageHelper = $this->helper('Magento\Catalog\Helper\Image');
+    $_imageHover = 'hover_image_id';
+    $pos = $block->getPositioned();
     ?>
     <div class="block widget block-products-list <?= /* @noEscape */ $mode ?>">
         <?php if ($block->getTitle()): ?>
@@ -36,9 +43,30 @@ use Magento\Framework\App\Action\Action;
                     <?php foreach ($items as $_item): ?>
                         <?= /* @noEscape */ ($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
                         <div class="product-item-info">
+                            <?php //Product Image ?>
                             <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
                                 <?= $block->getImage($_item, $image)->toHtml() ?>
                             </a>
+                            <?php //Product Image Hovered ?>
+                            <?php
+                            $productImageHover = $_imageHelper->init($_item, $_imageHover);
+                            $productImage = $this->helper('Magento\Catalog\Helper\Image');
+                            if ($pos != null) {
+                                $position = ' style="left:' . $productImage->getWidth() . 'px;'
+                                    . 'top:' . $productImage->getHeight() . 'px;"';
+                            }
+                            ?>
+                            <?php if (strpos($productImageHover->getUrl(), 'Magento_Catalog/images/product/placeholder/hover.jpg') == false) { ?>
+                                <a href="<?php /* @escapeNotVerified */ echo $_item->getProductUrl() ?>"
+                                   class="product-item-photo-hovered"
+                                   tabindex="-1">
+                                    <img src="<?php echo $productImageHover->getUrl(); ?>"
+                                         class="photo-image-hover"
+                                         width="<?php echo $productImage->getWidth(); ?>"
+                                         height="<?php echo $productImage->getHeight() ?>"
+                                         alt="<?php echo $productImageHover->getLabel() ?>"/>
+                                </a>
+                            <?php } ?>
                             <div class="product-item-details">
                                 <strong class="product-item-name">
                                     <a title="<?= $block->escapeHtml($_item->getName()) ?>"

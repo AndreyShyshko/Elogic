@@ -3,6 +3,7 @@ define([
     'jquery',
     'niceSelect',
 ], function($) {
+    'use strict';
 
     $.widget('Skeleton.sorter', {
 

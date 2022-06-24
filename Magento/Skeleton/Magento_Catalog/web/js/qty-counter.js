@@ -2,6 +2,7 @@
 define([
     'jquery'
 ], function ($) {
+    'use strict';
 
     $.widget('Skeleton.qtyCounter', {
 

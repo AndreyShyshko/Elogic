@@ -42,9 +42,12 @@
             line-height: @toolbar-mode-icon-font-size + 2;
             margin: 0;
             padding: 7px 0;
+            border-bottom: 1px solid @color-skeleton__main-font-color;
+            font-weight: @font-weight__light;
             text-align: left;
             top: 0;
             vertical-align: middle;
+            text-transform: uppercase;
 
             .products.wrapper ~ .toolbar & {
                 display: none;
@@ -53,7 +56,7 @@
 
         .page-with-filter & {
             &-amount {
-                position: static;
+                float: right;
             }
         }
 
@@ -78,9 +81,6 @@
         float: left;
 
         .page-products & {
-            position: absolute;
-            right: 0;
-            top: 0;
             z-index: 1;
         }
 
@@ -195,21 +195,21 @@
         text-align: center;
 
         &:hover {
-            .lib-css(color, @toolbar-element__color);
-            background: darken(@toolbar-element-background, 2%);
+            background: @color-skeleton__button-background;
+            color: @color-skeleton__button-font-color;
         }
 
         &.active {
-            background: darken(@toolbar-element-background, 7%);
-            color: @color-gray62;
+            background: @color-skeleton__button-background;
+            color: @color-skeleton__button-font-color;
         }
 
         .lib-icon-font(
         @icon-grid,
         @_icon-font-size: @toolbar-mode-icon-font-size,
         @_icon-font-text-hide: true,
-        @_icon-font-color: @text__color__muted,
-        @_icon-font-color-hover: @text__color__muted
+        @_icon-font-color-hover: @color-skeleton__button-font-color,
+        @_icon-font-color-active: @color-skeleton__button-font-color
         );
     }
 

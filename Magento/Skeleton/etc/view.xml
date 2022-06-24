@@ -9,6 +9,20 @@
                 <height>382</height>
             </image>
 
+            <image id="category_page_grid" type="small_image">
+                <width>308</width>
+                <height>382</height>
+            </image>
+            <image id="category_page_list" type="small_image">
+                <width>308</width>
+                <height>382</height>
+            </image>
+
+            <image id="hover_image_id" type="hover_image">
+                <width>308</width>
+                <height>382</height>
+            </image>
+
         </images>
     </media>
  </view>
