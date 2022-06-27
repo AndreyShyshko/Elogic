@@ -1,0 +1,24 @@
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $viewModel \Custommodule\Categories\ViewModel\Links */
+
+$viewModel = $block->getViewModel();
+
+$categories = $viewModel->getCat();
+
+?>
+
+<?php if($categories->count()>0){ ?>
+    <div class="sidebar-categories">
+        <h3><?= $block->escapeHtml(__('Categories:')) ?></h3>
+        <ul class="category-list">
+            <?php foreach($categories as $category){ ?>
+                <li class="category-item">
+                    <a href="<?= $block->escapeUrl($this->getBaseUrl().$category->getRequestPath()) ?>">
+                        <?= $block->escapeHtml($category->getName()) ?>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
+<?php } ?>

@@ -1,0 +1,22 @@
+& when (@media-common = true) {
+    .sidebar-categories {
+        color: @color-skeleton__second-font-color;
+        padding: 0 @indent__s;
+
+        .category-list {
+            list-style: none;
+            padding: @indent__s (@indent__s + 5px);
+
+            .category-item a {
+                color: @color-skeleton__main-font-color;
+                text-decoration: none;
+                transition: all .3s ease-in;
+
+                &:hover {
+                    color: @color-skeleton__second-font-color;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
